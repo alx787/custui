@@ -17,9 +17,11 @@
     <resource type="download" name="custui.js" location="/js/custui.js"/>
     <resource type="download" name="images/" location="/images"/>
     <context>custui</context>
-    <!--<context>jira.general</context>-->
-    <context>atl.general</context>
+    <context>jira.general</context>
     <context>jira.view.issue</context>
+    <context>jira.issue.tools</context>
+
+    <!--<context>atl.general</context>-->
   </web-resource>
   <webwork1 key="setupcustomuiplugin" name="setup custom ui plugin" i18n-name-key="setupcustomuiplugin.name">
     <description key="setupcustomuiplugin.description">The setup custom ui plugin Plugin</description>

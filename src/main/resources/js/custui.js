@@ -1,11 +1,15 @@
 AJS.toInit(function(){
 
     // show username
-    var username = AJS.$("a#header-details-user-fullname").attr("data-displayname");
-    AJS.$("a#header-details-user-fullname").append("<span>" + username + "</span>");
+    var avatar = AJS.$("a#header-details-user-fullname");
+    var username = avatar.attr("data-displayname");
+    avatar.append("<span>" + username + "</span>");
 
     // hide edit
-    AJS.$("#opsbar-edit-issue_container").hide();
+    console.log("===================");
+    console.log(AJS.$("#opsbar-edit-issue_container"));
+    // AJS.$("#opsbar-edit-issue_container").hide();
+    AJS.$("#edit-issue").hide();
 
     // пункты в админке
 
@@ -16,5 +20,7 @@ AJS.toInit(function(){
     // 4 Скрыть меню Еще - или каждую кнопку в отдельности
 
     // 5 пользователи на которых меню действовать не будет
+
+    //https://developer.atlassian.com/cloud/jira/platform/issue-view-ui-locations/
 
 })
