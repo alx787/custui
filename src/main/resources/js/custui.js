@@ -6,11 +6,15 @@ AJS.toInit(function(){
     avatar.append("<span>" + username + "</span>");
 
     // hide edit
-    console.log("===================");
-    console.log(AJS.$("#opsbar-edit-issue_container"));
-    // AJS.$("#opsbar-edit-issue_container").hide();
-    AJS.$("#edit-issue").hide();
-
+    // console.log("===================");
+    // console.log(AJS.$("#opsbar-edit-issue_container"));
+    // console.log(AJS.$("#opsbar-edit-issue_container").size());
+    //AJS.$("#opsbar-edit-issue_container").hide();
+    // console.log(AJS.$("#edit-issue"));
+    // console.log(AJS.$("#edit-issue").size());
+    // // AJS.$("#edit-issue").hide();
+    //
+    // AJS.$("#edit-issue").css("display", "none");
     // пункты в админке
 
     // 1 Включить плагин
