@@ -17,13 +17,35 @@
     <resource type="download" name="custui.js" location="/js/custui.js"/>
     <resource type="download" name="images/" location="/images"/>
     <context>custui</context>
-    <context>atl.general</context>
-    <!--<context>opsbar-operations</context>-->
-    <!--<context>jira.global</context>-->
-    <!--<context>jira.view.issue</context>-->
-    <!--<context>jira.issue.tools</context>-->
-    <condition class="ru.hlynov.oit.jira.conditions.UserAllowCondition"></condition>
+  </web-resource>
 
+  <web-resource key="custui-resources-username" name="custui Web Resources USERNAME">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="showusername.js" location="/js/showusername.js"/>
+    <condition class="ru.hlynov.oit.jira.conditions.UserNameAllowCondition"/>
+    <!--<context>custui</context>-->
+    <context>atl.general</context>
+  </web-resource>
+  <web-resource key="custui-resources-edit" name="custui Web Resources EDIT">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="custuiedit.css" location="/css/custuiedit.css"/>
+    <condition class="ru.hlynov.oit.jira.conditions.EditAllowCondition"/>
+    <!--<context>custui</context>-->
+    <context>atl.general</context>
+  </web-resource>
+  <web-resource key="custui-resources-comment" name="custui Web Resources COMMENT">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="custuicomment.css" location="/css/custuicomment.css"/>
+    <condition class="ru.hlynov.oit.jira.conditions.CommentAllowCondition"/>
+    <!--<context>custui</context>-->
+    <context>atl.general</context>
+  </web-resource>
+  <web-resource key="custui-resources-more" name="custui Web Resources MORE">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="custuimore.css" location="/css/custuimore.css"/>
+    <condition class="ru.hlynov.oit.jira.conditions.MoreAllowCondition"/>
+    <!--<context>custui</context>-->
+    <context>atl.general</context>
   </web-resource>
   <webwork1 key="setupcustomuiplugin" name="setup custom ui plugin" i18n-name-key="setupcustomuiplugin.name">
     <description key="setupcustomuiplugin.description">The setup custom ui plugin Plugin</description>
@@ -33,4 +55,14 @@
       </action>
     </actions>
   </webwork1>
+  <web-section name="setup-hide-button" i18n-name-key="setup-hide-button.name" key="setup-hide-button" location="admin_plugins_menu" weight="1000">
+    <description key="setup-hide-button.description">The setup-hide-button Plugin</description>
+    <label key="setup-hide-button.label"/>
+  </web-section>
+  <web-item name="setup hide button link" i18n-name-key="setuphidebuttonlink.name" key="setuphidebuttonlink" section="admin_plugins_menu/setup-hide-button" weight="1000">
+    <description key="setuphidebuttonlink.description">The setup hide button link Plugin</description>
+    <!--<label key="setuphidebuttonlink.label"></label>-->
+    <label key="Настройка"></label>
+    <link linkId="setuphidebuttonlink-link">/secure/SetupCustomUiPlugin!default.jspa</link>
+  </web-item>
 </atlassian-plugin>

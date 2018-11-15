@@ -1,1 +1,61 @@
-<h1>success.vm</h1>
+<html>
+<head>
+    <meta name="decorator" content="atl.admin"/>
+    <meta name="admin.active.section" content="admin_plugins_menu/setup-hide-button"/>
+##    $webResourceManager.requireResource("com.atlassian.auiplugin:aui-buttons")
+##    $webResourceManager.requireResourcesForContext("com.atlassian.auiplugin:message")
+    $webResourceManager.requireResourcesForContext("custui")
+</head>
+
+<body>
+
+    <h2>Настройка отображения кнопок</h2>
+
+    <form class="aui" method="post" action="SetupCustomUiPlugin!save.jspa">
+
+        <fieldset class="group">
+            <legend><span>username</span></legend>
+            <div class="checkbox">
+                <input class="checkbox" type="checkbox" name="showUserName" id="showUserName" />
+                <label for="showUserName">Отображать имя пользователя рядом с аватаркой</label>
+            </div>
+        </fieldset>
+        &nbsp;
+        <fieldset class="group">
+            <legend><span>Кнопки на панели задачи</span></legend>
+            <div class="checkbox">
+                <input class="checkbox" type="checkbox" name="hideEdit" id="hideEdit" />
+                <label for="hideEdit">Скрыть кнопку "Редактировать"</label>
+            </div>
+            <div class="checkbox">
+                <input class="checkbox" type="checkbox" name="hideComment" id="hideComment" />
+                <label for="hideComment">Скрыть кнопку "Комментарий"</label>
+            </div>
+
+            <div class="checkbox">
+                <input class="checkbox" type="checkbox" name="hideMore" id="hideMore" />
+                <label for="hideMore">Скрыть кнопку "Еще"</label>
+            </div>
+        </fieldset>
+        &nbsp;
+        <fieldset class="group">
+            <div class="checkbox">
+                <input class="checkbox" type="checkbox" name="notForAdmin" id="notForAdmin" />
+                <label for="notForAdmin">У админов не скрывать</label>
+            </div>
+        </fieldset>
+        &nbsp;
+        &nbsp;
+        <div class="buttons-container">
+            <div class="buttons">
+                <input class="button submit" type="submit" value="Сохранить" id="comment-save-button">
+##                <a class="cancel" href="#">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+##    <h1>Отображать имя пользователя рядом с аватаркой</h1>
+##    <h1>Скрытие кнопок</h1>
+
+</body>
+<html>
