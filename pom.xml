@@ -10,7 +10,7 @@
         <url>http://www.example.com/</url>
     </organization>
     <name>custui</name>
-    <description>This is the ru.hlynov.oit:custui plugin for Atlassian JIRA.</description>
+    <description>This is the ru.hlynov.oit:custui plugin for Atlassian JIRA. Hide buttons from issue view</description>
     <packaging>atlassian-plugin</packaging>
     <dependencies>
         <dependency>

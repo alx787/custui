@@ -47,6 +47,13 @@
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
+  <web-resource key="custui-resources-assign" name="custui Web Resources ASSIGN">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="custuiassign.css" location="/css/custuiassign.css"/>
+    <condition class="ru.hlynov.oit.jira.conditions.AssignAllowCondition"/>
+    <!--<context>custui</context>-->
+    <context>atl.general</context>
+  </web-resource>
   <webwork1 key="setupcustomuiplugin" name="setup custom ui plugin" i18n-name-key="setupcustomuiplugin.name">
     <description key="setupcustomuiplugin.description">The setup custom ui plugin Plugin</description>
     <actions>

@@ -28,6 +28,9 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
     private String hideMore;
     private String hideMoreCheck;
 
+    private String hideAssign;
+    private String hideAssignCheck;
+
     private String notForAdmin;
     private String notForAdminCheck;
 
@@ -68,6 +71,11 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
         hideMore = null;
         if (ConfigTools.GetPermission(cfg, "hideMore")) {
             hideMore = "on";
+        }
+
+        hideAssign = null;
+        if (ConfigTools.GetPermission(cfg, "hideAssign")) {
+            hideAssign = "on";
         }
 
         notForAdmin = null;
@@ -114,6 +122,12 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
             params.addProperty("hideMore", "off");
         } else {
             params.addProperty("hideMore", "on");
+        }
+
+        if (hideAssign == null) {
+            params.addProperty("hideAssign", "off");
+        } else {
+            params.addProperty("hideAssign", "on");
         }
 
         if (notForAdmin == null) {
@@ -172,6 +186,14 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
         this.hideMore = hideMore;
     }
 
+    public String getHideAssign() {
+        return hideAssign;
+    }
+
+    public void setHideAssign(String hideAssign) {
+        this.hideAssign = hideAssign;
+    }
+
     public String getNotForAdmin() {
         return notForAdmin;
     }
@@ -209,6 +231,14 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
 
     public String getHideMoreCheck() {
         if (hideMore == null) {
+            return "";
+        } else {
+            return "checked=checked";
+        }
+    }
+
+    public String getHideAssignCheck() {
+        if (hideAssign == null) {
             return "";
         } else {
             return "checked=checked";

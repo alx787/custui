@@ -39,6 +39,11 @@
                 <input class="checkbox" type="checkbox" name="hideMore" id="hideMore" $hideMoreCheck />
                 <label for="hideMore">Скрыть кнопку "Еще"</label>
             </div>
+
+            <div class="checkbox">
+                <input class="checkbox" type="checkbox" name="hideAssign" id="hideAssign" $hideAssignCheck />
+                <label for="hideAssign">Скрыть кнопку "Назначить"</label>
+            </div>
         </fieldset>
         &nbsp;
         <fieldset class="group">
