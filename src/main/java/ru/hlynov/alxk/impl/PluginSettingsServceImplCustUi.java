@@ -1,17 +1,16 @@
-package ru.hlynov.oit.impl;
+package ru.hlynov.alxk.impl;
 
-import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.pluginsettings.PluginSettings;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
-import ru.hlynov.oit.api.PluginSettingService;
+import ru.hlynov.alxk.api.PluginSettingServiceCustUi;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 //@ExportAsService({PluginSettingService.class})
 @Named
-public class PluginSettingsServceImpl implements PluginSettingService {
+public class PluginSettingsServceImplCustUi implements PluginSettingServiceCustUi {
 
     private final PluginSettings pluginSettings;
     private static final String PLUGIN_STORAGE_KEY = "ru.alex.settings.";
@@ -19,7 +18,7 @@ public class PluginSettingsServceImpl implements PluginSettingService {
 
 
     @Inject
-    public PluginSettingsServceImpl(@ComponentImport PluginSettingsFactory pluginSettingsFactory) {
+    public PluginSettingsServceImplCustUi(@ComponentImport PluginSettingsFactory pluginSettingsFactory) {
 //        this.pluginSettings = pluginSettings;
         this.pluginSettings = pluginSettingsFactory.createGlobalSettings();
     }

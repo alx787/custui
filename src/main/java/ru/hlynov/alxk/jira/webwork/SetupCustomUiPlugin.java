@@ -1,12 +1,12 @@
-package ru.hlynov.oit.jira.webwork;
+package ru.hlynov.alxk.jira.webwork;
 
 import com.google.gson.JsonObject;
 //import com.google.gson.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
-import ru.hlynov.oit.api.PluginSettingService;
-import ru.hlynov.oit.jira.ConfigTools;
+import ru.hlynov.alxk.api.PluginSettingServiceCustUi;
+import ru.hlynov.alxk.jira.ConfigTools;
 
 import javax.inject.Inject;
 
@@ -14,7 +14,7 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
 {
     private static final Logger log = LoggerFactory.getLogger(SetupCustomUiPlugin.class);
 
-    private final PluginSettingService pluginSettingService;
+    private final PluginSettingServiceCustUi pluginSettingService;
 
     private String showUserName;
     private String showUserNameCheck;
@@ -35,7 +35,7 @@ public class SetupCustomUiPlugin extends JiraWebActionSupport
     private String notForAdminCheck;
 
     @Inject
-    public SetupCustomUiPlugin(PluginSettingService pluginSettingService) {
+    public SetupCustomUiPlugin(PluginSettingServiceCustUi pluginSettingService) {
         this.pluginSettingService = pluginSettingService;
     }
 

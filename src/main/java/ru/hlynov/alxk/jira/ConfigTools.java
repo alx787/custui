@@ -1,4 +1,4 @@
-package ru.hlynov.oit.jira;
+package ru.hlynov.alxk.jira;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

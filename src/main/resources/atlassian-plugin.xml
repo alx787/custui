@@ -22,42 +22,42 @@
   <web-resource key="custui-resources-username" name="custui Web Resources USERNAME">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="showusername.js" location="/js/showusername.js"/>
-    <condition class="ru.hlynov.oit.jira.conditions.UserNameAllowCondition"/>
+    <condition class="ru.hlynov.alxk.jira.conditions.UserNameAllowCondition"/>
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
   <web-resource key="custui-resources-edit" name="custui Web Resources EDIT">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="custuiedit.css" location="/css/custuiedit.css"/>
-    <condition class="ru.hlynov.oit.jira.conditions.EditAllowCondition"/>
+    <condition class="ru.hlynov.alxk.jira.conditions.EditAllowCondition"/>
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
   <web-resource key="custui-resources-comment" name="custui Web Resources COMMENT">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="custuicomment.css" location="/css/custuicomment.css"/>
-    <condition class="ru.hlynov.oit.jira.conditions.CommentAllowCondition"/>
+    <condition class="ru.hlynov.alxk.jira.conditions.CommentAllowCondition"/>
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
   <web-resource key="custui-resources-more" name="custui Web Resources MORE">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="custuimore.css" location="/css/custuimore.css"/>
-    <condition class="ru.hlynov.oit.jira.conditions.MoreAllowCondition"/>
+    <condition class="ru.hlynov.alxk.jira.conditions.MoreAllowCondition"/>
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
   <web-resource key="custui-resources-assign" name="custui Web Resources ASSIGN">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="custuiassign.css" location="/css/custuiassign.css"/>
-    <condition class="ru.hlynov.oit.jira.conditions.AssignAllowCondition"/>
+    <condition class="ru.hlynov.alxk.jira.conditions.AssignAllowCondition"/>
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
   <webwork1 key="setupcustomuiplugin" name="setup custom ui plugin" i18n-name-key="setupcustomuiplugin.name">
     <description key="setupcustomuiplugin.description">The setup custom ui plugin Plugin</description>
     <actions>
-      <action name="ru.hlynov.oit.jira.webwork.SetupCustomUiPlugin" alias="SetupCustomUiPlugin">
+      <action name="ru.hlynov.alxk.jira.webwork.SetupCustomUiPlugin" alias="SetupCustomUiPlugin">
         <view name="success">/templates/setupcustomuiplugin/setupcustomuiplugin/success.vm</view>
       </action>
     </actions>
