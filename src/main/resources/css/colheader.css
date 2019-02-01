@@ -1,0 +1,7 @@
+tr.rowHeader th.colHeaderLink span {
+    white-space: normal;
+}
+
+tr.rowHeader th.active span {
+    white-space: normal;
+}

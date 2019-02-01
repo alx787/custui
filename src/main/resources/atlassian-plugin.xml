@@ -18,7 +18,6 @@
     <resource type="download" name="images/" location="/images"/>
     <context>custui</context>
   </web-resource>
-
   <web-resource key="custui-resources-username" name="custui Web Resources USERNAME">
     <dependency>com.atlassian.auiplugin:ajs</dependency>
     <resource type="download" name="showusername.js" location="/js/showusername.js"/>
@@ -54,6 +53,11 @@
     <!--<context>custui</context>-->
     <context>atl.general</context>
   </web-resource>
+  <web-resource name="dashboard widget column header word wrap" i18n-name-key="dashboardwidgetcolumnheaderwordwrap.name" key="dashboardwidgetcolumnheaderwordwrap">
+    <description key="dashboardwidgetcolumnheaderwordwrap.description">The dashboard widget column header word wrap Plugin</description>
+    <resource type="download" name="colheader.css" location="/css/colheader.css"/>
+    <context>atl.general</context>
+  </web-resource>
   <webwork1 key="setupcustomuiplugin" name="setup custom ui plugin" i18n-name-key="setupcustomuiplugin.name">
     <description key="setupcustomuiplugin.description">The setup custom ui plugin Plugin</description>
     <actions>
@@ -69,7 +73,7 @@
   <web-item name="setup hide button link" i18n-name-key="setuphidebuttonlink.name" key="setuphidebuttonlink" section="admin_plugins_menu/setup-hide-button" weight="1000">
     <description key="setuphidebuttonlink.description">The setup hide button link Plugin</description>
     <!--<label key="setuphidebuttonlink.label"></label>-->
-    <label key="Настройка"></label>
+    <label key="Настройка"/>
     <link linkId="setuphidebuttonlink-link">/secure/SetupCustomUiPlugin!default.jspa</link>
   </web-item>
 </atlassian-plugin>
