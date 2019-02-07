@@ -1,0 +1,106 @@
+Задача стоит такая - нужно убрать кнопку "Назначить" в родительской задаче, причем во всех подзадачах она должна быть
+пришлось писать системный класс, компилировать его и добавлять в системный каталог джиры вручную
+
+
+разработанный класс
+com.atlassian.jira.plugin.webfragment.conditions.IsNotAdminInSubtask
+
+каталог куда его надо закинуть
+/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/com/atlassian/jira/plugin/webfragment/conditions
+
+файл системного плагина с описанием условий
+/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/system-issueoperations-plugin.xml
+
+
+
+
+
+
+в исходниках лежит тут
+/home/alex/distr/atlas_jira_sources/atlassian-jira-7.12.0-source/jira-project/jira-components/jira-core/src/main/resources/system-issueoperations-plugin.xml
+
+в файлах развернутого инстанса
+/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/system-issueoperations-plugin.xml
+
+
+
+           <web-item key="assign-issue" name="Assign Issue Link" section="operations-top-level" i18n-name-key="webfragments.view.issue.opsbar.operations.top.assign" weight="5">
+                <label key="common.words.assign"/>
+                <tooltip key="admin.issue.operations.plugin.assign.issue.name"/>
+                <styleClass>issueaction-assign-issue</styleClass>
+                <link linkId="assign-issue">
+                    /secure/AssignIssue!default.jspa?id=$issueId
+                </link>
+                <condition class="com.atlassian.jira.plugin.webfragment.conditions.HasIssuePermissionCondition">
+                    <param name="permission">assign</param>
+                </condition>
+                <condition class="com.atlassian.jira.plugin.webfragment.conditions.IsIssueEditableCondition"/>
+                <condition class="com.atlassian.jira.plugin.webfragment.conditions.IsNotAdminInSubtask"/>
+                <condition class="com.atlassian.jira.plugin.webfragment.conditions.IsFieldHiddenCondition" invert="true">
+                    <param name="field">assignee</param>
+                </condition>
+            </web-item>
+
+
+
+
+
+IsNotAdminInSubtask.class
+
+<condition class="com.atlassian.jira.plugin.webfragment.conditions.IsNotAdminInSubtask.class"/>
+
+скомпилированные файлы лежат тут 
+
+/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/com/atlassian/jira/plugin/webfragment/conditions
+
+
+
+
+
+/home/alex/distr/atlas_jira_sources/atlassian-jira-7.12.0-source/jira-project/jira-components/jira-core/src/main/java/com/atlassian/jira/plugin/webfragment/conditions/IsIssueEditableCondition.java
+
+
+package com.atlassian.jira.plugin.webfragment.conditions;
+
+import com.atlassian.jira.issue.Issue;
+import com.atlassian.jira.issue.IssueManager;
+import com.atlassian.jira.plugin.webfragment.model.JiraHelper;
+import com.atlassian.jira.user.ApplicationUser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Condition to check if the issue is currently editable
+ * <p>
+ * An issue must be in the JiraHelper context params.
+ *
+ * @since v4.1
+ */
+public class IsIssueEditableCondition extends AbstractIssueWebCondition {
+    private static final Logger log = LoggerFactory.getLogger(IsIssueEditableCondition.class);
+    private final IssueManager issueManager;
+
+
+    public IsIssueEditableCondition(IssueManager issueManager) {
+        this.issueManager = issueManager;
+    }
+
+    public boolean shouldDisplay(ApplicationUser user, Issue issue, JiraHelper jiraHelper) {
+        return issueManager.isEditable(issue);
+    }
+
+}
+
+
+// пакет условий проверки что пользователь является системным администратором
+
+package com.atlassian.jira.plugin.webfragment.conditions;
+
+import com.atlassian.jira.permission.GlobalPermissionKey;
+import com.atlassian.jira.security.GlobalPermissionManager;
+
+public class UserIsSysAdminCondition extends AbstractFixedPermissionCondition {
+    public UserIsSysAdminCondition(GlobalPermissionManager permissionManager) {
+        super(permissionManager, GlobalPermissionKey.SYSTEM_ADMIN);
+    }
+}

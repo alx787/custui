@@ -1,0 +1,45 @@
+package com.atlassian.jira.plugin.webfragment.conditions;
+
+import com.atlassian.jira.permission.GlobalPermissionKey;
+import com.atlassian.jira.security.GlobalPermissionManager;
+
+import com.atlassian.jira.issue.Issue;
+//import com.atlassian.jira.issue.IssueManager;
+import com.atlassian.jira.plugin.webfragment.model.JiraHelper;
+import com.atlassian.jira.user.ApplicationUser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+public class IsNotAdminInSubtask extends AbstractIssueWebCondition {
+    private static final Logger log = LoggerFactory.getLogger(IsNotAdminInSubtask.class);
+
+    private final GlobalPermissionManager permissionManager;
+
+    public IsNotAdminInSubtask(GlobalPermissionManager permissionManager) {
+        this.permissionManager = permissionManager;
+    }
+
+    public boolean shouldDisplay(ApplicationUser user, Issue issue, JiraHelper jiraHelper) {
+
+        // проверка прав пользователя = системный администратор JIRA
+        boolean isSysAdm = this.permissionManager.hasPermission(GlobalPermissionKey.SYSTEM_ADMIN, user);
+
+        // для сисадминов разрешено все
+        if (isSysAdm) {
+            return true;
+        }
+
+        // условие для остальных пользователей в подзадаче, у которой родительская задача в статусе "На исполнении"
+        // условие проще - только для подзадач
+        if (!isSysAdm && issue.isSubTask()) {
+//            if (issue.getParentObject().getStatusId().equals("10107")) {
+//                return true;
+//            }
+            return true;
+        }
+
+        return false;
+    }
+
+}

@@ -1,6 +1,8 @@
 package ru.hlynov.alxk.jira.conditions;
 
 import com.atlassian.jira.component.ComponentAccessor;
+import com.atlassian.jira.issue.Issue;
+import com.atlassian.jira.plugin.webfragment.model.JiraHelper;
 import com.atlassian.jira.security.JiraAuthenticationContext;
 //import com.atlassian.jira.security.PermissionManager;
 import com.atlassian.jira.user.ApplicationUser;
@@ -19,9 +21,12 @@ import ru.hlynov.alxk.jira.ConfigTools;
 
 //import com.atlassian.jira.plugin.webfragment.JiraWebInterfaceManager;
 
+import com.atlassian.jira.plugin.webfragment.conditions.AbstractIssueWebCondition;
 
 import javax.inject.Inject;
 import java.util.Map;
+
+
 
 public class AssignAllowCondition implements Condition {
     private static final Logger log = LoggerFactory.getLogger(AssignAllowCondition.class);
@@ -40,22 +45,6 @@ public class AssignAllowCondition implements Condition {
 
     @Override
     public boolean shouldDisplay(Map<String, Object> map) {
-
-//        JiraHelper jiraHelper = new JiraHelper();
-//        Issue currentIssue = (Issue) jiraHelper.getContextParams().get("issue");
-//        if (currentIssue == null) {
-//            log.warn("===== ========= issue = null");
-//        } else {
-//            log.warn("===== ========= " + currentIssue.getKey());
-//        }
-
-
-//        log.warn("===== =========");
-//        log.warn("===== ========= size: " + String.valueOf(map.size()));
-//        // прочитаем параметры
-//        for (Map.Entry<String, Object> entry : map.entrySet()) {
-//            log.warn("===== entry key: " + entry.getKey() + " value: " + entry.getValue().toString());
-//        }
 
 
         if (authContext.isLoggedInUser()) {

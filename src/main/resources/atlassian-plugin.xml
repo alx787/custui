@@ -51,7 +51,8 @@
     <resource type="download" name="custuiassign.css" location="/css/custuiassign.css"/>
     <condition class="ru.hlynov.alxk.jira.conditions.AssignAllowCondition"/>
     <!--<context>custui</context>-->
-    <context>atl.general</context>
+    <!--<context>atl.general</context>-->
+    <context>jira.view.issue</context>
   </web-resource>
   <web-resource name="dashboard widget column header word wrap" i18n-name-key="dashboardwidgetcolumnheaderwordwrap.name" key="dashboardwidgetcolumnheaderwordwrap">
     <description key="dashboardwidgetcolumnheaderwordwrap.description">The dashboard widget column header word wrap Plugin</description>
