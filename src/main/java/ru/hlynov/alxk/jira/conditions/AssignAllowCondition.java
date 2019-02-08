@@ -1,30 +1,31 @@
 package ru.hlynov.alxk.jira.conditions;
 
 import com.atlassian.jira.component.ComponentAccessor;
-import com.atlassian.jira.issue.Issue;
-import com.atlassian.jira.plugin.webfragment.model.JiraHelper;
 import com.atlassian.jira.security.JiraAuthenticationContext;
+import com.atlassian.jira.issue.Issue;
+import com.atlassian.jira.permission.GlobalPermissionKey;
+import com.atlassian.jira.plugin.webfragment.model.JiraHelper;
+import com.atlassian.jira.security.GlobalPermissionManager;
 //import com.atlassian.jira.security.PermissionManager;
 import com.atlassian.jira.user.ApplicationUser;
 //import com.atlassian.jira.user.util.UserUtil;
 import com.atlassian.plugin.PluginParseException;
-import com.atlassian.plugin.web.Condition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+
+import com.atlassian.plugin.web.Condition;
 import ru.hlynov.alxk.api.PluginSettingServiceCustUi;
 import ru.hlynov.alxk.jira.ConfigTools;
 
+import javax.inject.Inject;
+import java.util.Map;
 
 //import com.atlassian.jira.issue.IssueManager;
 //import com.atlassian.jira.issue.Issue;
 //import com.atlassian.jira.plugin.webfragment.model.JiraHelper;
 
 //import com.atlassian.jira.plugin.webfragment.JiraWebInterfaceManager;
-
-import com.atlassian.jira.plugin.webfragment.conditions.AbstractIssueWebCondition;
-
-import javax.inject.Inject;
-import java.util.Map;
 
 
 
